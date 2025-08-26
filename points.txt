@@ -1,0 +1,16 @@
+python -m venv aenv 
+source aenv/bin/activate 
+pip install django 
+pip install djangorestframework
+django-admin startproject <travels> 
+cd travels 
+in settings.py  installed apps add 'rest_framework', 
+python manage.py runserver  
+python manage.py startapp <app_name> 
+python manage.py makemigrations 
+python manage.py migrate 
+python manage.py createsuperuser 
+# serializers 
+1. reads fields from the model
+2. knows how to convert an object into json 
+3. validates json data if u r saving a new entry
