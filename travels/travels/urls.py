@@ -17,6 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from rest_framework.authtoken.views import obtain_auth_token
+from django.contrib.auth.models import User 
+
+# 👇 auto-create superuser if none exists (runs once when server starts)
+if not User.objects.filter(username="admin").exists():
+    User.objects.create_superuser("ramesh", "ram@gmail.com", "Ramesh@123")
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api-token-auth/",obtain_auth_token),
